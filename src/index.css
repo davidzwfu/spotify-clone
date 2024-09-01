@@ -9,6 +9,9 @@
   -moz-osx-font-smoothing: grayscale;
 
   --background-base: #121212;
+  --background-elevated-base: #1f1f1f;
+  --text-base: #fff;
+  --text-subdued: #b3b3b3;
 }
 
 * {
@@ -31,6 +34,27 @@ body {
   height: 100%;
 }
 
+button {
+  background: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+input {
+  background: none;
+  border: none;
+  outline: none;
+}
+
+input::placeholder {
+  color: hsla(0, 0%, 100%, .7);
+}
+
+svg {
+  fill: currentColor
+}
+
 .main-grid {
   height: 100%;
   display: grid;
@@ -47,6 +71,61 @@ body {
 .global-nav {
   grid-area: global-nav;
   height: 48px;
+  display: grid;
+  grid-template-columns: 0.25fr 0.5fr 0.25fr;
+}
+
+.global-nav__home {
+  display: flex;
+  align-items: center;
+  justify-self: flex-start;
+  margin: 0 20px;
+}
+
+.global-nav__flex {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.global-nav__btn {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: var(--background-elevated-base);
+  color: var(--text-subdued);
+  width: 48px;
+  height: 48px;
+}
+
+.global-nav__btn:hover {
+  transform: scale(1.04);
+  color: var(--text-base);
+}
+
+.search-bar {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.search-bar__search {
+  position: absolute;
+  color: var(--text-subdued);
+  margin-inline: 12px;
+}
+
+.search-bar__input {
+  flex: 1;
+  padding: 12px 64px 12px 48px;
+  height: 48px;
+  background: var(--background-elevated-base);
+  border-radius: 500px;
+  color: var(--text-base);
+  font-size: 1rem;
 }
 
 .left-sidebar {
@@ -60,6 +139,8 @@ body {
 
 .main-view {
   grid-area: main-view;
+  background: var(--background-base);
+  border-radius: 8px;
 }
 
 .right-sidebar {
